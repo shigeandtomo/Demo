@@ -1,0 +1,31 @@
+#1. UnitVectorsの処理
+#2. 単位の変換 done
+
+###
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/syanase/share/idea2/dpdata/system.py", line 672, in rot_frame_lower_triangular
+    assert np.linalg.det(rot) == 1
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+###
+
+<Atoms.UnitVectors
+     3.5600000     0.0000000     3.5600000
+     0.0000000     3.5600000     3.5600000
+     3.5600000     3.5600000     0.0000000
+Atoms.UnitVectors>
+では、通らない。
+
+<Atoms.UnitVectors
+     -3.5600000     0.0000000     3.5600000
+     0.0000000     3.5600000     3.5600000
+     -3.5600000     3.5600000     0.0000000
+Atoms.UnitVectors>
+では、通る。
+
+行列式(対称性)が関係あるかもしれない。
+
+https://github.com/deepmodeling/dpdata/issues/408
+
+#3.　UnitVectorsがautoの場合はどこにその値が出力されるか
+#4. 
