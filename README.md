@@ -4,8 +4,8 @@ dpdata original source code is [here](https://github.com/deepmodeling/dpdata/tre
 
 ## How to apply for OpenMX format
 ```
-# ! git clone https://github.com/deepmodeling/dpdata tmp
-# ! cp -r tmp/dpdata .
+! git clone https://github.com/deepmodeling/dpdata tmp
+! cp -r tmp/dpdata .
 ! cp -r openmx dpdata/
 ! cp openmx.py dpdata/plugins/
 ```
