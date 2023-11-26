@@ -13,11 +13,12 @@ from ase.geometry.analysis import Analysis
 from ase.build import molecule
 
 #choose label
-label=1
+label=0
+# label=1
 ## choose prefix
 # prefix="tutorial"
-# prefix="abacus_nn"
-prefix="openmx_nn"
+prefix="abacus_nn"
+# prefix="openmx_nn"
 
 # atoms = molecule('CH4')
 ## take care of "positions"　#Ang 1e-10
@@ -42,10 +43,10 @@ atoms.set_calculator(DP(model=f"{label}1.train/graph.pb"))
 dt = 1.0 * units.fs
 
 ## choose temps, steps
-temp0, nsteps0 = 200, 200
-temp1, nsteps1 = 300, 600
+temp0, nsteps0 = 300, 100
+temp1, nsteps1 = 300, 100
 taut = 1.0 * units.fs #used in NVTB
-num_interval=10
+num_interval=1
 
 MaxwellBoltzmannDistribution(atoms, temp0*units.kB)
 
@@ -82,7 +83,7 @@ def myprint():
     # print(f'time={dyn.get_time() / units.fs: 5.0f} fs '+f'T={atoms.get_temperature(): 3.0f} K ')
     print(f'{ dyn.get_time()/units.fs:5.0f}   '+f'{np.linalg.norm(vec1):5.3f}   '+f'{np.linalg.norm(vec2):5.3f}   '+f'{np.linalg.norm(vec3):5.3f}   '+f'{calculate_angle(vec1,vec2):5.3f}   '+f'{calculate_angle(vec2,vec3):5.3f}   '+f'{calculate_angle(vec3,vec1):5.3f}')
 
-dyn.attach(myprint, interval=10)
+dyn.attach(myprint, interval=1)
 dyn.attach(MDLogger(dyn, atoms, f"log/{prefix}.log", header=True, peratom=True, mode="w"), interval=num_interval)
 
 dyn.run(nsteps0)

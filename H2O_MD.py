@@ -16,7 +16,7 @@ label=2
 ## choose prefix
 # prefix="emt"
 # prefix="dp_vasp"
-prefix="H2O"
+prefix="H2O_nn"
 # prefix="dp_abcus"
 
 ## take care of "positions"
@@ -39,11 +39,11 @@ atoms.set_calculator(DP(model=f"{label}1.train/graph.pb"))
 dt = 1.0 * units.fs
 
 ## choose temps, steps
-temp0, nsteps0 = 300, 200
-temp1, nsteps1 = 300, 600
+temp0, nsteps0 = 300, 100
+temp1, nsteps1 = 300, 100
 taut = 1.0 * units.fs #used in NVTB
 # ttime= 40.0*units.fs #used in N-H
-num_interval=10
+num_interval=1
 
 MaxwellBoltzmannDistribution(atoms, temp0*units.kB)
 # MaxwellBoltzmannDistribution(atoms, temperature_K=temp0,force_temp=True)
@@ -83,7 +83,7 @@ def myprint():
     # print(f'time={dyn.get_time() / units.fs: 5.0f} fs '+f'T={atoms.get_temperature(): 3.0f} K ')
     print(f'{ dyn.get_time()/units.fs:5.0f}   '+f'{np.linalg.norm(vec1):5.3f}   '+f'{np.linalg.norm(vec2):5.3f}   '+f'{calculate_angle(vec1,vec2):5.3f}')
 
-dyn.attach(myprint, interval=10)
+dyn.attach(myprint, interval=1)
 dyn.attach(MDLogger(dyn, atoms, f"log/{prefix}.log", header=True, peratom=True, mode="w"), interval=num_interval)
 
 dyn.run(nsteps0)
