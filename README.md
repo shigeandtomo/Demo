@@ -1,5 +1,7 @@
 # Demo
 
+Original dpdata is found [here](https://github.com/deepmodeling/dpdata/tree/master).
+
 ## How to use
 
 ### sample files description
