@@ -2,6 +2,16 @@
 
 Original dpdata is found [here](https://github.com/deepmodeling/dpdata/tree/master).
 
+## How to prepare
+
+```
+git clone -b devel https://github.com/deepmodeling/dpdata && cd dpdata && pip install .
+```
+(optional)
+```
+pip install -r requirements.txt
+```
+
 ## How to use
 
 ### sample files description
@@ -11,14 +21,7 @@ Original dpdata is found [here](https://github.com/deepmodeling/dpdata/tree/mast
 1. `20.data` H2O with OpenMX
 
 Each folder named `train` contains `input.json`, deepmd-kit input script.
-```
-# import os
-# os.chdir("work")
-# ! git clone https://github.com/deepmodeling/dpdata tmp
-# ! cp -r tmp/dpdata .
-! cp -r openmx dpdata/
-! cp openmx.py dpdata/plugins/
-```
+
 ## Import libraries
 Now, we can use deepmd with OpenMX. Then, import following libraries.
 ```
