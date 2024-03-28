@@ -1,4 +1,4 @@
-# Demo
+# Demonstration
 
 Original dpdata is found [here](https://github.com/deepmodeling/dpdata/tree/master).
 
@@ -34,4 +34,3 @@ import pandas as pd
 ang2bohr = 1.88972612463
 bohr2ang = 0.529177210903
 ```
-#### Note: Even if "dpdata" has already been installed, the package named "dpdata" in the current directory is imported first.
